@@ -1,0 +1,70 @@
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6" style="margin-left:440px ; margin-top: 10px; margin-bottom: 1px  ">
+      <img src="https://cdn.pixabay.com/photo/2021/05/31/20/04/headsets-6299753_960_720.png" width="200px"
+           height="200px">
+      <p style=" font-size: 40px; font-family: 'Curlz MT'; font-weight: bold">BaKich Music</p>
+    </div>
+  </div>
+  <div class="row" >
+    <article class="card-body mx-auto" style="max-width: 500px; margin-bottom: 5px">
+      <h4 class="card-title mt-3 text-center">Create Account</h4>
+      <p>
+        <a href="" class="btn btn-block btn-outline-danger"><i class="fab fa-google"> </i><span style="font-weight: bold"> Login with google</span></a>
+      </p>
+      <p class="divider-text">
+        <span class="bg-light">OR</span>
+      </p>
+      <form *ngIf="formRegister" [formGroup]="formRegister" (ngSubmit)="submit()">
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          </div>
+          <input formControlName="name" class="form-control" placeholder="Full name" type="text">
+        </div>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+          </div>
+          <input formControlName="email" class="form-control" placeholder="Email address" type="email">
+        </div>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+          </div>
+          <input formControlName="password" class="form-control" placeholder="Create password" type="password">
+        </div>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+          </div>
+          <input formControlName="password_confirmation" class="form-control" placeholder="Repeat password" type="password">
+        </div> <!-- form-group// -->
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+          </div>
+          <input formControlName="phone" class="form-control" placeholder="Phone number" type="text">
+        </div> <!-- form-group// -->
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
+        </div> <!-- form-group// -->
+        <p class="text-center">Have an account? <a routerLink="../login">Log In</a> </p>
+      </form>
+    </article>
+  </div> <!-- card.// -->
+
+</div>
+<!--container end.//-->
+
+<br>
+</body>a
