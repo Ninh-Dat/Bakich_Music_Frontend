@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 // @ts-ignore
 import {LoginService} from '../../service/login.service';
 import {Router} from '@angular/router';
+import {min} from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -21,10 +22,15 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = this.fb.group({
-      email: [''],
-      password: ['']
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required,Validators.minLength(6), Validators.maxLength(8)]],
     });
+
   }
+  get f() {
+   return  this.loginForm.controls
+  }
+
 
   submit() {
     const data = this.loginForm.value;

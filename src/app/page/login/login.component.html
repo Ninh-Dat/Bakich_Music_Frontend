@@ -46,6 +46,17 @@
                 <input name="" class="form-control" placeholder="Email or login" type="email" formControlName="email">
               </div> <!-- input-group.// -->
             </div> <!-- form-group// -->
+            <div *ngIf="f.email.invalid && (f.email.dirty||f.email.touched)">
+              <div *ngIf="f.email.errors">
+                <div *ngIf="f.email.errors.required">
+                  <p style="font-size: 14px; color: red">Email không được để trống</p>
+                </div>
+                <div *ngIf="f.email.errors.email">
+                  <p style="font-size: 14px; color: red">Không đúng định dạng email</p>
+                </div>
+              </div>
+            </div>
+
             <div class="form-group">
               <div class="input-group">
                 <div class="input-group-prepend">
@@ -54,8 +65,22 @@
                 <input class="form-control" placeholder="******" type="password" formControlName="password">
               </div> <!-- input-group.// -->
             </div> <!-- form-group// -->
-            <div class="form-group">
-              <button type="submit" class="btn btn-primary btn-block"> Login</button>
+            <div *ngIf="f.password.invalid && (f.password.dirty||f.password.touched)">
+              <div *ngIf="f.password.errors">
+                <div *ngIf="f.password.errors.required">
+                  <p style="font-size: 14px; color: red">Mật khẩu không được để trống</p>
+                </div>
+                <div *ngIf="f.password.errors.minlength">
+                  <p style="font-size: 14px; color: red">Password lớn hơn 6 ký tự</p>
+                </div>
+                <div *ngIf="f.password.errors.maxlength">
+                  <p style="font-size: 14px; color: red">Password nhỏ hơn 8 ký tự </p>
+                </div>
+
+              </div>
+            </div>
+            <div *ngIf="loginForm.valid" class="form-group">
+              <button type="submit" class="btn btn-primary btn-block" > Login</button>
             </div> <!-- form-group// -->
             <p class="text-center"><a href="#" class="btn">Forgot password?</a></p>
           </form>
