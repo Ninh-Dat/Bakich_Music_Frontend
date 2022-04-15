@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 import {RegisterService} from '../../service/register.service';
 import {Router} from '@angular/router';
+// import { ConfirmedValidator } from "./confirmed.validator";
 
 @Component({
   selector: 'app-register',
@@ -17,13 +18,19 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.formRegister = this.fb.group({
-      name: [''],
-      email: [''],
-      password:[''],
-      password_confirmation: [''],
-      phone: ['']
-    })
+        name: ['', [Validators.required]],
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(8)]],
+        password_confirmation: ['', Validators.required],
+
+        phone: ['', [Validators.required, Validators.maxLength(10)]],
+      },
+      {
+        validators: this.confirmedValidator('password', 'password_confirmation')
+      })
   }
+
+
   submit(){
     const data = this.formRegister.value;
     this.registerService.register(data).subscribe( res =>{
@@ -32,5 +39,22 @@ export class RegisterComponent implements OnInit {
       this.router.navigate(['login']);
     })
   }
+get f(){
+    return this.formRegister.controls;
+}
 
+confirmedValidator(controlName: string, matchingControlName: string){
+  return (formGroup: FormGroup) => {
+    const control = formGroup.controls[controlName];
+    const matchingControl = formGroup.controls[matchingControlName];
+    if (matchingControl.errors && !matchingControl.errors.confirmedValidator) {
+      return;
+    }
+    if (control.value !== matchingControl.value) {
+      matchingControl.setErrors({ confirmedValidator: true });
+    } else {
+      matchingControl.setErrors(null);
+    }
+  }
+}
 }
