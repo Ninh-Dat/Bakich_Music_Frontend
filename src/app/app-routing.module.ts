@@ -17,14 +17,14 @@ const routes: Routes = [
 
     path: 'master',
     component: MasterComponent,
-
+  },
+  {
     path: 'login',
     component: LoginComponent
   },
   {
     path: 'register',
     component: RegisterComponent
-
   }
 ];
 
