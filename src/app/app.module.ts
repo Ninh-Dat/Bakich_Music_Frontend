@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './page/home/home.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
+import { MasterComponent } from './page/master/master.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    MasterComponent
   ],
   imports: [
     BrowserModule,
