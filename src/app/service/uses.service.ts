@@ -13,4 +13,8 @@ export class UsesService {
   getById(id): Observable<any> {
     return this.http.get(environment.api_url + `users/${id}/detail`);
   }
+
+  updateUser(id,data): Observable<any>{
+    return this.http.put(environment.api_url + `users/${id}/update`, data);
+  }
 }
