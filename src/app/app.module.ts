@@ -11,6 +11,7 @@ import { RegisterComponent } from './page/register/register.component';
 import {HomeComponent} from './page/home/home.component';
 import {UserDetailComponent} from './user/user-detail/user-detail.component';
 import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
+import { NavComponent } from './page/nav/nav.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    NavComponent
   ],
     imports: [
         BrowserModule,

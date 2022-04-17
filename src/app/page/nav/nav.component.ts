@@ -3,11 +3,11 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {User} from '../../models/user';
 
 @Component({
-  selector: 'app-master',
-  templateUrl: './master.component.html',
-  styleUrls: ['./master.component.css']
+  selector: 'app-nav',
+  templateUrl: './nav.component.html',
+  styleUrls: ['./nav.component.css']
 })
-export class MasterComponent implements OnInit {
+export class NavComponent implements OnInit {
   formSearch: FormGroup;
   userLogin: User
 
