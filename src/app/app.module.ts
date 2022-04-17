@@ -9,6 +9,9 @@ import { MasterComponent } from './page/master/master.component';
 import { LoginComponent } from './page/login/login.component';
 import { RegisterComponent } from './page/register/register.component';
 import {HomeComponent} from './page/home/home.component';
+import {UserDetailComponent} from './user/user-detail/user-detail.component';
+import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -17,13 +20,15 @@ import {HomeComponent} from './page/home/home.component';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
+    UserDetailComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        NgbDropdownModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
