@@ -50,7 +50,6 @@ export class UserEditComponent implements OnInit {
 
   submit(id) {
     return this.userService.updateUser(id, this.updateForm.value).subscribe(() => {
-      // console.log(this.updateForm.value)
     this.router.navigate(['/users/'+id+'/detail']);
     });
   }
