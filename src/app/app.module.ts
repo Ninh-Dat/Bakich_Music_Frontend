@@ -11,17 +11,23 @@ import { RegisterComponent } from './page/register/register.component';
 import {HomeComponent} from './page/home/home.component';
 import {UserDetailComponent} from './user/user-detail/user-detail.component';
 import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
+import { NavComponent } from './page/nav/nav.component';
+import { FooterComponent } from './page/footer/footer.component';
+import {UserEditComponent} from './user/user-edit/user-edit.component';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MasterComponent,
-    LoginComponent,
-    RegisterComponent,
-    HomeComponent,
-    UserDetailComponent
-  ],
+    declarations: [
+        AppComponent,
+        MasterComponent,
+        LoginComponent,
+        RegisterComponent,
+        HomeComponent,
+        UserDetailComponent,
+        UserEditComponent,
+        NavComponent,
+        FooterComponent
+    ],
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -29,7 +35,11 @@ import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
         ReactiveFormsModule,
         NgbDropdownModule,
     ],
-  providers: [],
-  bootstrap: [AppComponent]
+    providers: [],
+  exports: [
+    NavComponent,
+    FooterComponent
+  ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
