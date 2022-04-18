@@ -14,6 +14,8 @@ import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
 import { NavComponent } from './page/nav/nav.component';
 import { FooterComponent } from './page/footer/footer.component';
 import {UserEditComponent} from './user/user-edit/user-edit.component';
+import { CategoryListComponent } from './category/category-list/category-list.component';
+import { CategoryDetailComponent } from './category/category-detail/category-detail.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import {UserEditComponent} from './user/user-edit/user-edit.component';
         UserDetailComponent,
         UserEditComponent,
         NavComponent,
-        FooterComponent
+        FooterComponent,
+        CategoryListComponent,
+        CategoryDetailComponent
     ],
     imports: [
         BrowserModule,
