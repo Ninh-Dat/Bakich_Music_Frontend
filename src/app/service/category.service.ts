@@ -13,4 +13,8 @@ export class CategoryService {
   getAll(): Observable<any>{
     return this.http.get(environment.api_url + `categories`);
   }
+
+  getById(id): Observable<any> {
+    return this.http.get(environment.api_url + `categories/${id}/detail`);
+  }
 }
