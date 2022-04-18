@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {User} from '../../models/user';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {UsesService} from '../../service/uses.service';
 
 @Component({
@@ -16,15 +16,16 @@ export class MasterComponent implements OnInit {
   id = this.route.snapshot.paramMap.get('id');
   constructor(private fb: FormBuilder,
               private route: ActivatedRoute,
-              private userService: UsesService) { }
+              private userService: UsesService,
+              private router: Router) { }
 
   ngOnInit() {
     this.formSearch = this.fb.group({
       search: [''],
     });
-    this.getUserById(this.id);
-    this.getUserLogin();
 
+    this.getUserLogin();
+    this.getUserById(this.id);
   }
   getUserById(id) {
     this.userService.getById(id).subscribe(user => {
@@ -34,6 +35,9 @@ export class MasterComponent implements OnInit {
   getUserLogin(){
     let data = localStorage.getItem('userLogin');
     this.userLogin = JSON.parse(data);
+  }
+  getUserLogout(){
+    this.router.navigate(['login'])
   }
 
 }

@@ -20,14 +20,14 @@ export class UserEditComponent implements OnInit {
               private router: Router) {
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
       this.ids = +paramMap.get('ids');
-
       this.getById(this.id);
     });
+    this.getUserById(this.id);
   }
 
   ngOnInit() {
     this.getUserLogin();
-    this.getUserById(this.id);
+
   }
 
   getUserById(id) {

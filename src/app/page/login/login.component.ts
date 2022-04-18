@@ -38,7 +38,6 @@ export class LoginComponent implements OnInit {
 
   submit() {
     const data = this.loginForm.value;
-    console.log(data);
     this.loginService.login(data).subscribe(res => {
       const userLogin = res.user;
       localStorage.setItem('userLogin', JSON.stringify(userLogin));

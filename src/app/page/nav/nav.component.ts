@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {User} from '../../models/user';
 import {UsesService} from '../../service/uses.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -16,7 +16,8 @@ export class NavComponent implements OnInit {
   id = this.route.snapshot.paramMap.get('id');
   constructor(private fb: FormBuilder,
               private  userService: UsesService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
     this.formSearch = this.fb.group({
@@ -34,4 +35,8 @@ export class NavComponent implements OnInit {
       this.users = user;
     });
   }
+  getUserLogout(){
+    this.router.navigate(['login'])
+  }
+
 }
